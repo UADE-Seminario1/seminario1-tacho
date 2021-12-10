@@ -1,0 +1,16 @@
+.DS_Store
+.coverage
+.pytest_cache
+.env
+.idea
+.tox
+.venv
+.vscode
+__pycache__
+build
+dist
+htmlcov
+application.log
+*.egg-info
+**/*.py[cod]
+*.rpm
