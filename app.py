@@ -11,7 +11,7 @@ referenceUnit = 1
 sample_size = 20
 API_URL = "http://glacial-garden-26787.herokuapp.com/api"
 BIN_ID = "9903a7f1-cb25-4458-ab3a-d1638611eeda"
-WAITING_TIME = 60 #in seconds
+WAITING_TIME = 10 #in seconds
 
 
 if not EMULATE_HX711:
@@ -66,7 +66,7 @@ def get_new_connection():
 
     conn = None
     r = requests.head(url)
-    #print(f"{r.status_code}: {url}")
+    print(f"{r.status_code}: {url}")
     if r.status_code == requests.codes.ok:
         r = requests.get(url)
         conn = r.json()['data']
@@ -79,7 +79,7 @@ def accept_connection(connection_id, weight):
     
     conn = None
     r = requests.patch(url, data={'initial_weight': weight})
-    #print(f"{r.status_code}: {url}")
+    print(f"{r.status_code}: {url}")
     if r.status_code == requests.codes.ok:
         conn = r.json()['data']
     
@@ -91,7 +91,7 @@ def end_connection(connection_id, weight):
 
     conn = None
     r = requests.patch(url, data={'final_weight': weight})
-    #print(f"{r.status_code}: {url}")
+    print(f"{r.status_code}: {url}")
     if r.status_code == requests.codes.ok:
         conn = r.json()['data']
 
